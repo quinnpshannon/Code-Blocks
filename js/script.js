@@ -82,3 +82,37 @@ if(grade >=90) {
     console.log("F");
 }
 //THis is a cool comment to make a change to this file.
+
+let num1 = parseInt(prompt('Enter a number:'));
+let op = prompt('Enter a number:');
+let num2 = parseInt(prompt('Enter a number:'));
+let result;
+
+switch (op) {
+    case '+':
+        result = num1 + num2;
+        break;
+    case '-':
+        result = num1 - num2;
+        break;
+    case '*':
+        result = num1 * num2;
+        break;
+    case '/':
+        if(num2 == 0){
+            result="You cannot divide by zero!";
+        } else {
+        result = num1 / num2;
+        }
+        break;
+    case '%':
+        if(num2 == 0){
+            result="You cannot divide by zero!";
+        } else {
+            result = num1 % num2;
+        }
+        break;
+    default:
+        result="Not a valid operand!"
+}
+console.log(result);
