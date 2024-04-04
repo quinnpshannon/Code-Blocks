@@ -58,6 +58,17 @@ let y=5;
 //     console.log("Access Denied!");
 // }
 
+let num=75;
+if(num >100 && num > 0) {
+    console.log(`num: ${num} is Positive and greater than 100`);
+} else if (num<=100 && num > 0) {
+    console.log(`num: ${num} is Positive and less than or equal to 100`);
+}else if (num < 0) {
+    console.log(`num: ${num} is Negative`);
+}else {
+    console.log(`num: ${num} is Zero`);
+}
+
 let grade=100;
 if(grade >=90) {
     console.log("A");
