@@ -123,7 +123,7 @@ const PI = 3.1415;
 const area = PI * radius * radius;
 const plantSpace = .8;
 let plants = 20;
-let weeks = 5;
+let weeks = 3;
 let plantArea;
 let gardenStatus;
 
@@ -146,10 +146,10 @@ for(let x=1;x<=weeks;x++){
 }
 console.log("========== PART 2 ==========");
 weeks = 10;
-plants = 100;
+plants = 100; 
 areaCalc = PI * radius * radius;
 for(let x=1;x<=weeks;x++){
-    plantArea = (plants*plantSpace)/area;
+    plantArea = (plants*plantSpace)/areaCalc;
 /*    if(plantArea >= .8){
         gardenStatus = 'Pruned';
         // x+=weeks;
@@ -173,40 +173,44 @@ console.log(`you would need to have ${(plants*plantSpace)/.8} square meters.`);
 console.log(`That's a circle with a radius of ${Math.sqrt((plants*plantSpace)/.8)} meters.`);
 
 console.log("========== PART 3 ==========");
+//There is work to do here
+
 weeks = 10;
 plants = 100;
+//If they want to try different areas, they can adjust the radius here
+radius = 5;
 areaCalc = PI * radius * radius;
-for(let x=1;x<=weeks;x++){
-    plantArea = (plants*plantSpace)/area;
-/*    if(plantArea >= .8){
-        gardenStatus = 'Pruned';
-        // x+=weeks;
-    } else if(plantArea >= .5){
-        gardenStatus = 'Monitored';
-    } else {
-        gardenStatus = 'Planted';
-    }
-    */
-    console.log(`Week ${x}`);
+try{
+    for(let x=1;x<=weeks;x++){
+        plantArea = (plants*plantSpace)/areaCalc;
+        if(plantArea >= .8){
+            gardenStatus = 'Pruned';
+            // x+=weeks;
+        } else if(plantArea >= .5){
+            gardenStatus = 'Monitored';
+        } else {
+            gardenStatus = 'Planted';
+        }
+    
+        console.log(`Week ${x}`);
+        console.log(`There are currently ${plants} plants.`);
+        console.log(`They are occupying  ${plants*plantSpace} square meters.`);
+        if (plants*plantSpace >= areaCalc){
+            throw "There are too many plants for this size.";
+            break;
+        }
+        console.log(`Plants need to be ${gardenStatus}.`);
+        console.log(`They are occupying  ${plantArea*100}% of the space.`);
+        console.log(`====================`);
+        plants*=2;
+        }
+    plants/=2;
     console.log(`There are currently ${plants} plants.`);
-    console.log(`They are occupying  ${plants*plantSpace} square meters.`);
-    console.log(`====================`);
-    plants*=2;
+    console.log(`To have this many plants without pruning for ${weeks} weeks`);
+    console.log(`you would need to have ${(plants*plantSpace)/.8} square meters.`);
+    //Oh huh, that's the same .8 I could probably trim both numbers, but this leaves it open to modifications
+    console.log(`That's a circle with a radius of ${Math.sqrt((plants*plantSpace)/.8)} meters.`);
+} catch(err) {
+    console.log(`You only have ${areaCalc} square meters available.`);
+    console.log(err);
 }
-plants/=2;
-console.log(`There are currently ${plants} plants.`);
-console.log(`To have this many plants without pruning for ${weeks} weeks`);
-console.log(`you would need to have ${(plants*plantSpace)/.8} square meters.`);
- //Oh huh, that's the same .8 I could probably trim both numbers, but this leaves it open to modifications
-console.log(`That's a circle with a radius of ${Math.sqrt((plants*plantSpace)/.8)} meters.`);
-//let plantArea = plants * plantSpace;
-//let result = plantArea / area;
-// console.log(result);
-// plants *=2;
-// plantArea = plants * plantSpace;
-// result = plantArea / area;
-// console.log(result);
-// plants *=2;
-// plantArea = plants * plantSpace;
-// result = plantArea / area;
-// console.log(result);
