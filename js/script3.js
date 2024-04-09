@@ -39,6 +39,7 @@ for (let x=1;x<=100;x++){
 
 //     For the numbers 0 - 100, print out "I found a <number>. High five!" if the number is a multiple of five Example Output:
 for (let x=0;x<=100;x++){    
+    if (x==0) continue;
     if (x%3==0) {
         console.log(`I found a ${x}. Three is a crowd`);
     }
