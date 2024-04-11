@@ -117,6 +117,13 @@ The global scope is represented by the Window object
 // }
 // console.log(result);
 
+// HEY HEY HEY
+// LETS WRITE DOWN THE SYNTAX FOR THE SHORTENED IF THEN ELSE
+// (conditional) ? (value_if_true) : (value_if_false)
+// FOR EXAMPLE
+// let banana = color === 'Yellow' ? true : false
+// if Color is 'Yellow' then banana = true else banana = false
+
 console.log("========== PART 1 ==========");
 let radius = 5;
 const PI = 3.1415;
